@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding=utf8 -*-
-# Created by dengqiangxi at 2018/11/7
-
 import pymysql
 import warnings
 import queue

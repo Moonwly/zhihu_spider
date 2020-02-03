@@ -14,13 +14,16 @@ from zhihu_spider.misc.tools import spelling_insert_sql, hump2underline
 
 item_class_list = [
     UserInfo,
-    Business,
-    Location,
-    Topic,
-    Following,
-    Follower,
-    Employment,
-    Education,
+    Question,
+    Answer,
+    Article,
+
+    CollectAnswer,
+    AgreeAnswer,
+    FollowQuestion,
+    CollectQuestion,
+    AgreeArticle,
+    CollectArticle
 ]
 
 
@@ -34,6 +37,7 @@ class ZhihuSpiderPipeLine(object):
         for item_class in item_class_list:
             if isinstance(item, item_class):
                 self.save_item(item, hump2underline(item_class.__name__))
+                break
 
     def save_item(self, item, table_name):
         sql = spelling_insert_sql(item.keys(), table_name)

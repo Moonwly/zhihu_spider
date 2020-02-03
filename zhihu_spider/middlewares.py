@@ -26,6 +26,23 @@ class ZhihuRetryMiddleware(RetryMiddleware):
 """
 
 
+class MyproxiesSpiderMiddleware(object):
+
+    count = 0
+
+    def __init__(self, ip=''):
+        self.ip = ip
+
+    def process_request(self, request, spider):
+        with open('zhihu_spider/txt/ip_list.txt', 'r') as f:
+            line = f.read().strip()
+            linestr = line.split('\n')
+        thisip = linestr[self.count % 1500]
+        self.count += 1
+        print("this is ip: " + thisip)
+        request.meta["proxy"] = "http://" + thisip
+
+
 class ZhihuDownloaderMiddleware(object):
     '''
     下载器中间件

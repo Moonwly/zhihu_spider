@@ -10,129 +10,104 @@ from scrapy.loader import ItemLoader
 from scrapy.loader.processors import TakeFirst
 
 
+# 用户信息
 class UserInfo(Item):
-    education = Field()
-    following_count = Field()
-    vote_from_count = Field()
-    user_type = Field()
-    included_text = Field()
-    pins_count = Field()
-    is_privacy_protected = Field()
-    included_articles_count = Field()
-    is_force_renamed = Field()
     id = Field()
-    favorite_count = Field()
-    voteup_count = Field()
-    commercial_question_count = Field()
-    is_blocking = Field()
-    following_columns_count = Field()
-    headline = Field()
+    uid = Field()
     url_token = Field()
-    participated_live_count = Field()
-    is_advertiser = Field()
-    following_favlists_count = Field()
-    favorited_count = Field()
-    is_org = Field()
-    follower_count = Field()
-    employment = Field()
-    type = Field()
-    avatar_hue = Field()
-    avatar_url_template = Field()
-    following_topiceducation_count = Field()
-    description = Field()
-    business = Field()
-    avatar_url = Field()
-    columns_count = Field()
-    hosted_live_count = Field()
-    is_active = Field()
-    thank_to_count = Field()
-    mutual_followees_count = Field()
-    cover_url = Field()
-    thank_from_count = Field()
-    vote_to_count = Field()
-    is_blocked = Field()
-    answer_count = Field()
-    allow_message = Field()
-    articles_count = Field()
     name = Field()
-    question_count = Field()
-    location = Field()
-    badge = Field()
-    included_answers_count = Field()
-    url = Field()
-    logs_count = Field()
-    following_question_count = Field()
-    thanked_count = Field()
+    type = Field()
+    headline = Field()
     gender = Field()
-
-    sina_weibo_url = Field()
-    sina_weibo_name = Field()
-    marked_answers_text = Field()
-
-    shared_count = Field()
-    lite_favorite_content_count = Field()
-    independent_articles_count = Field()
-    reactions_count = Field()
-    is_activity_blocked = Field()
-    is_bind_sina = Field()
-    is_hanged = Field()
-    is_unicom_free = Field()
-    live_count = Field()
-    is_baned = Field()
-    is_enable_signalment = Field()
-    is_enable_watermark = Field()
-    infinity = Field()
+    follower_count = Field()
+    answer_count = Field()
+    article_count = Field()
+    company = Field()
+    job = Field()
 
 
-class Base(Item):
-    url = Field()
-    avatar_url = Field()
-    name = Field()
-    introduction = Field()
-    type = Field()
-    excerpt = Field()
+# 知乎问题
+class Question(Item):
     id = Field()
-    meta = Field()
+    qid = Field()
+    # 提问者id和url_token
+    uid = Field()
+    url_token = Field()
+    title = Field()
+    created_time = Field()
 
 
-class Business(Base):
-    experience = Field()
-    pass
+# 知乎回答
+class Answer(Item):
+    id = Field()
+    aid = Field()
+    uid = Field()
+    url_token = Field()
+    qid = Field()
+    content = Field()
+    created_time = Field()
+    updated_time = Field()
 
 
-class Location(Base):
-    pass
+# 知乎文章
+class Article(Item):
+    id = Field()
+    arid = Field()
+    uid = Field()
+    url_token = Field()
+    title = Field()
+    content = Field()
+    created_time = Field()
+    updated_time = Field()
 
 
-class Topic(Base):
-    pass
+# 收藏回答
+class CollectAnswer(Item):
+    id = Field()
+    url_token = Field()
+    aid = Field()
+    created_time = Field()
 
 
-class Education(Base):
-    pass
+# 点赞回答
+class AgreeAnswer(Item):
+    id = Field()
+    url_token = Field()
+    aid = Field()
+    created_time = Field()
 
 
-class Employment(Base):
-    pass
+# 关注问题
+class FollowQuestion(Item):
+    id = Field()
+    url_token = Field()
+    qid = Field()
+    created_time = Field()
 
 
-class Following(Item):
-    follower_token = Field()
-    following_token = Field()
+# 收藏问题
+class CollectQuestion(Item):
+    id = Field()
+    url_token = Field()
+    qid = Field()
+    created_time = Field()
 
 
-#    is_vip 需要转换
+# 点赞文章
+class AgreeArticle(Item):
+    id = Field()
+    url_token = Field()
+    arid = Field()
+    created_time = Field()
 
 
-class Follower(Item):
-    follower_token = Field()
-    following_token = Field()
+# 收藏文章
+class CollectArticle(Item):
+    id = Field()
+    url_token = Field()
+    arid = Field()
+    created_time = Field()
 
 
 class RawDataItem(Item):
     json_obj = Field()
-
-
-class TestLoader(ItemLoader):
-    default_item_class = UserInfo
-    default_input_processor = TakeFirst()

@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding=utf8 -*-
-# Created by dengqiangxi at 2018/11/7
-
 from zhihu_spider.misc.all_secret_set import mysql_config
 import pymysql
 

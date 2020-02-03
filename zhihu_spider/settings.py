@@ -63,6 +63,8 @@ COOKIES_ENABLED = False
 DOWNLOADER_MIDDLEWARES = {
     'zhihu_spider.middlewares.ZhihuRetryMiddleware': 200,
     'zhihu_spider.middlewares.ZhihuDownloaderMiddleware': 543,
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 543,
+    'zhihu_spider.middlewares.MyproxiesSpiderMiddleware': 125
 }
 
 # IMAGES_STORE = 'image'
@@ -108,8 +110,8 @@ ZHIHU_HEADER = {
     "Accept-Language": "zh-CN,zh;q=0.8",
 }
 
-RETRY_TIMES = 10
-DOWNLOAD_TIMEOUT = 10
+RETRY_TIMES = 100
+DOWNLOAD_TIMEOUT = 5
 
 LOG_FILE = "spider.log"
 LOG_LEVEL = "WARNING"
