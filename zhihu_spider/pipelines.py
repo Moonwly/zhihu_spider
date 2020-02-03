@@ -2,7 +2,6 @@
 
 # Define your item pipelines here
 #
-import pymongo
 import pymysql
 
 from zhihu_spider.misc.all_secret_set import mysql_config
