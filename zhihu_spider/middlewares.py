@@ -37,8 +37,7 @@ class MyproxiesSpiderMiddleware(object):
         with open('zhihu_spider/txt/ip_list.txt', 'r') as f:
             line = f.read().strip()
             linestr = line.split('\n')
-        thisip = linestr[self.count % 1500]
-        self.count += 1
+        thisip = random.choice(linestr)
         print("this is ip: " + thisip)
         request.meta["proxy"] = "http://" + thisip
 
