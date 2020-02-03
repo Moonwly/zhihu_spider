@@ -106,12 +106,12 @@ ZHIHU_HEADER = {
     "Accept-Encoding": "gzip, identity",
     "Referer": "https://www.zhihu.com/",
     "Upgrade-Insecure-Requests": "1",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
+    # "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
     "Accept-Language": "zh-CN,zh;q=0.8",
 }
 
 RETRY_TIMES = 100
-DOWNLOAD_TIMEOUT = 5
+DOWNLOAD_TIMEOUT = 10
 
 LOG_FILE = "spider.log"
 LOG_LEVEL = "WARNING"

@@ -28,6 +28,7 @@ create table `question` (
 	`url_token` varchar(300) NOT NULL DEFAULT '',
 	`title` varchar(500) NOT NULL DEFAULT '',
 	`created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`parsed_title` text,
 	PRIMARY KEY(`id`),
 	UNIQUE KEY (`qid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,6 +43,7 @@ create table `answer` (
 	`content` text,
 	`created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`parsed_content` text,
 	PRIMARY KEY(`id`),
 	UNIQUE KEY (`aid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -56,6 +58,8 @@ create table `article` (
 	`content` text,
 	`created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`parsed_title` text,
+	`parsed_content` text,
 	PRIMARY KEY(`id`),
 	UNIQUE KEY (`arid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

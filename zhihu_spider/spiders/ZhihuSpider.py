@@ -223,7 +223,7 @@ class ZhihuSpider(scrapy.Spider):
                             article['url_token'] = author.get('url_token', '')
                         article['arid'] = target.get('id', '')
                         article['title'] = target.get('title', '')
-                        article['content'] = target.get('content', '')
+                        article['content'] = self.clean_content(target.get('content', ''))
                         article['created_time'] = time.strftime('%Y-%m-%d %H:%M:%S',
                                                                 time.localtime(target.get('created', '')))
                         article['updated_time'] = time.strftime('%Y-%m-%d %H:%M:%S',
